@@ -1,4 +1,4 @@
-NAME = ClapTrap
+NAME = FragTrap
 VERMILION_RED=\033[1;31m
 AZURE_BLUE=\033[1;34m
 GOLD_COLOR=\033[38;5;220m
@@ -6,8 +6,12 @@ GREEN=\033[0;32m
 RESET=\033[0m
 SRC_FILES = main.cpp \
 			ClapTrap.cpp \
+			ScavTrap.cpp \
+			FragTrap.cpp \
 
-INCLUDE = ClapTrap.hpp
+INCLUDE = ClapTrap.hpp \
+			ScavTrap.hpp \
+			FragTrap.hpp \
 
 OBJECTS = $(SRC_FILES:.cpp=.o)
 CC = c++
@@ -19,9 +23,9 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 all: $(NAME)  
 
 $(NAME) : $(OBJECTS) $(INCLUDE) Makefile
-	@echo "$(GOLD_COLOR)Compiling ClapTrap...$(RESET)"
+	@echo "$(GOLD_COLOR)Compiling FragTrap...$(RESET)"
 	$(CC) $(CFLAGS) -o $(NAME)  $(OBJECTS) 
-	@echo "$(GOLD_COLOR)ClapTrap compiled ! :)$(RESET)"
+	@echo "$(GOLD_COLOR)FragTrap compiled ! :)$(RESET)"
 
 clean:
 	@echo "$(AZURE_BLUE)Cleaning in progress...$(RESET)"

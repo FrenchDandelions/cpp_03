@@ -1,4 +1,4 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void)
 {
@@ -24,6 +24,7 @@ int main(void)
         ClapTrap trap4;
         trap4 = trap3;
         ClapTrap trap5("Emerald");
+        ClapTrap trap6(trap5);
         for(int i = 0; i < 12; i++)
             trap3.attack(trap2.getName());
         trap3.showStatus();
@@ -50,7 +51,6 @@ int main(void)
         ClapTrap trap3("Ruby");
         ClapTrap trap4("Amethyst");
         ClapTrap trap5("Emerald");
-        ClapTrap trap6(trap5);
         trap1.showStatus();
         trap2.showStatus();
         trap3.showStatus();
@@ -92,5 +92,37 @@ int main(void)
         trap5.showStatus();
         trap4.showStatus();
         trap3.showStatus();
+    }
+    {
+        std::cout << std::endl << "****************Test4****************" << std::endl << std::endl;
+        ScavTrap trap1;
+        ScavTrap trap2("Gold");
+        trap1.attack(trap2.getName());
+        trap1.showStatusScav();
+        trap1.guardGate();
+        trap1.guardGate();
+        trap1.attack(trap2.getName());
+        trap2.showStatusScav();
+        for(int i = 0; i < 5; i++)
+            trap2.attack(trap1.getName());
+        trap2.showStatusScav();
+        ScavTrap trap3("Silver");
+        trap3.showStatusScav();
+        trap3 = trap2;
+        trap3.showStatusScav();
+        trap2.showStatusScav();
+        for(int i = 0; i < 5; i++)
+            trap2.attack(trap1.getName());
+        trap2.guardGate();
+        trap2.guardGate();
+        trap3.showStatusScav();
+        trap2.showStatusScav();
+        trap1.takeDamage(1000000000);
+        trap2.takeDamage(10);
+        trap3.takeDamage(99);
+        trap1.showStatusScav();
+        trap2.showStatusScav();
+        trap3.showStatusScav();
+        ScavTrap trap4(trap3);
     }
 }

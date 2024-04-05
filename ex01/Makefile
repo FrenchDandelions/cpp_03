@@ -1,13 +1,15 @@
-NAME = BSP
+NAME = ScavTrap
 VERMILION_RED=\033[1;31m
 AZURE_BLUE=\033[1;34m
 GOLD_COLOR=\033[38;5;220m
 GREEN=\033[0;32m
 RESET=\033[0m
 SRC_FILES = main.cpp \
-			Fixed.cpp \
-			Point.cpp \
-			bsp.cpp \
+			ClapTrap.cpp \
+			ScavTrap.cpp \
+
+INCLUDE = ClapTrap.hpp \
+			ScavTrap.hpp \
 
 OBJECTS = $(SRC_FILES:.cpp=.o)
 CC = c++
@@ -19,9 +21,9 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 all: $(NAME)  
 
 $(NAME) : $(OBJECTS) $(INCLUDE) Makefile
-	@echo "$(GOLD_COLOR)Compiling BSP...$(RESET)"
+	@echo "$(GOLD_COLOR)Compiling ScavTrap...$(RESET)"
 	$(CC) $(CFLAGS) -o $(NAME)  $(OBJECTS) 
-	@echo "$(GOLD_COLOR)BSP compiled ! :)$(RESET)"
+	@echo "$(GOLD_COLOR)ScavTrap compiled ! :)$(RESET)"
 
 clean:
 	@echo "$(AZURE_BLUE)Cleaning in progress...$(RESET)"

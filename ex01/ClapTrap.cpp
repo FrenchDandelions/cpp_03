@@ -1,14 +1,20 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _hit_points(10), _energy_points(10), _attack_damage(0), _name("ClapTrap")
+ClapTrap::ClapTrap() : _hit_points(10), _energy_points(10), _attack_damage(0), _name("ClapTrap"), _max_hp(10), _max_energy(10)
 {
     std::cout << "Default ClapTrap constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(const std::string& name) :_hit_points(10), _energy_points(10), _attack_damage(0),_name(name) 
+ClapTrap::ClapTrap(const std::string& name) :_hit_points(10), _energy_points(10), _attack_damage(0),_name(name), _max_hp(10), _max_energy(10)
 {
     std::cout << "ClapTrap constructor called" << std::endl;
-    std::cout << "ClapTrap " << getName() << " is created!" << std::endl;
+    // std::cout << "ClapTrap " << getName() << " is created!" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &copy)
+{
+    std::cout << "Copy constructor called" << std::endl;
+    this->operator=(copy);
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &copy)
@@ -19,14 +25,10 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &copy)
         this->_attack_damage = copy._attack_damage;
         this->_energy_points = copy._energy_points;
         this->_hit_points = copy._hit_points;
+        this->_max_energy = copy._max_energy;
+        this->_max_hp = copy._max_hp;
     }
     return(*this);
-}
-
-ClapTrap::ClapTrap(const ClapTrap &copy)
-{
-    std::cout << "Copy constructor called" << std::endl;
-    this->operator=(copy);
 }
 
 void ClapTrap::showStatus(void)
@@ -35,6 +37,10 @@ void ClapTrap::showStatus(void)
         std::cout << "ClapTrap " << getName() << " has " << this->_hit_points << " hp and " << this->_energy_points <<  " energy left!" << std::endl;
     else
         std::cout << "ClapTrap " << getName() << " is dead!" << std::endl;
+}
+
+void ClapTrap::showCharacteristics(void){
+    std::cout << "Class has " << this->_name << " for name and " << this->_attack_damage << " attack damage and " << this->_energy_points << " energy points and " << this->_hit_points << " hp" << std::endl;
 }
 
 const std::string ClapTrap::getName(void)
@@ -84,12 +90,12 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
     if(this->_energy_points && this->_hit_points)
     {
-        if((this->_hit_points + amount) >= 10 && this->_hit_points < 10)
+        if((this->_hit_points + amount) >= this->_max_hp && this->_hit_points < this->_max_hp)
         {
             std::cout << "ClapTrap " << this->_name << " repaired itself and is now at full health!" << std::endl;
-            this->_hit_points = 10;
+            this->_hit_points = this->_max_hp;
         }
-        else if(this->_hit_points == 10)
+        else if(this->_hit_points == this->_max_hp)
         {
             std::cout << "ClapTrap " << this->_name << " tried repairing itself, but it was already full health and lost energy for nothing! :(" << std::endl;
         }
