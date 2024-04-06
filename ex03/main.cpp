@@ -1,4 +1,4 @@
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main(void)
 {
@@ -152,5 +152,12 @@ int main(void)
         trap2.highFivesGuys();
     }
     {
+        std::cout << std::endl << "****************Test6****************" << std::endl << std::endl;
+        DiamondTrap trap1("Diamond");
+        trap1.whoAmI();
+        DiamondTrap trap2;
+        trap2.whoAmI();
+        trap2 = DiamondTrap("Pikachu");
+        trap2.whoAmI();
     }
 }

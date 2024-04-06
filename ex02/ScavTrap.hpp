@@ -3,9 +3,9 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : public virtual ClapTrap
 {
-    protected:
+    private:
         bool _guard_state;
     public:
         ScavTrap();
@@ -13,6 +13,9 @@ class ScavTrap : public ClapTrap
         ScavTrap(const ScavTrap &copy);
         ScavTrap& operator= (const ScavTrap &copy);
         ~ScavTrap();
+        void attack(const std::string& target);
+        void takeDamage(unsigned int amount);
+        void beRepaired(unsigned int amount);
         void guardGate();
         void showStatusScav(void);
 };
