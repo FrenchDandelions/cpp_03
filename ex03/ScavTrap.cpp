@@ -7,7 +7,8 @@ ScavTrap::ScavTrap() : ClapTrap(), _guard_state(0)
     this->_hit_points = 100;
     this->_energy_points = 50;
     this->_max_energy = 50;
-    this->_attack_damage = 20;
+    if(this->_attack_damage != 30)
+        this->_attack_damage = 20;
     this->_max_hp = 100;
 }
 
@@ -17,7 +18,8 @@ ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name), _guard_state(0)
     this->_hit_points = 100;
     this->_energy_points = 50;
     this->_max_energy = 50;
-    this->_attack_damage = 20;
+    if(this->_attack_damage != 30)
+        this->_attack_damage = 20;
     this->_max_hp = 100;
 }
 

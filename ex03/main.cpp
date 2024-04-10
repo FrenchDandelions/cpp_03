@@ -155,9 +155,11 @@ int main(void)
         std::cout << std::endl << "****************Test6****************" << std::endl << std::endl;
         DiamondTrap trap1("Diamond");
         trap1.whoAmI();
+        trap1.showCharacteristics();
         DiamondTrap trap2;
         trap2.whoAmI();
         trap2 = DiamondTrap("Pikachu");
         trap2.whoAmI();
+        trap1.attack(trap2.getName());
     }
 }
