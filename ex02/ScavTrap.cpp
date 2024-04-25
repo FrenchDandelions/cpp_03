@@ -3,7 +3,7 @@
 ScavTrap::ScavTrap() : ClapTrap(), _guard_state(0)
 {
     std::cout << "Default ScavTrap constructor called" << std::endl;
-    (const_cast<std::string&>(this->_name)) = "ScavTrap";
+    this->_name = "ScavTrap";
     this->_hit_points = 100;
     this->_energy_points = 50;
     this->_max_energy = 50;
@@ -31,7 +31,7 @@ ScavTrap& ScavTrap::operator= (const ScavTrap &copy)
 {
     std::cout << "ScavTrap copy assignement operator called" << std::endl;
     if(this != &copy){
-        (const_cast<std::string&>(this->_name)) = copy._name;
+        this->_name = copy._name;
         this->_hit_points = copy._hit_points;
         this->_energy_points = copy._energy_points;
         this->_max_energy = copy._max_energy;

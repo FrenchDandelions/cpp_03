@@ -9,7 +9,7 @@ class ClapTrap
         unsigned int _hit_points;
         unsigned int _energy_points;
         unsigned int _attack_damage;
-        const std::string _name;
+        std::string _name;
         unsigned int _max_hp;
         unsigned int _max_energy;
 

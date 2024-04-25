@@ -3,7 +3,7 @@
 FragTrap::FragTrap() : ClapTrap()
 {
     std::cout << "Default FragTrap constructor called" << std::endl;
-    (const_cast<std::string&>(this->_name)) = "FragTrap";
+    this->_name = "FragTrap";
     this->_hit_points = 100;
     this->_energy_points = 100;
     this->_max_energy = 100;
@@ -32,7 +32,7 @@ FragTrap& FragTrap::operator=(const FragTrap &copy)
 {
     std::cout << "FragTrap copy assignement operator called" << std::endl;
     if(this != &copy){
-        (const_cast<std::string&>(this->_name)) = copy._name;
+        this->_name = copy._name;
         this->_hit_points = copy._hit_points;
         this->_energy_points = copy._energy_points;
         this->_max_energy = copy._max_energy;

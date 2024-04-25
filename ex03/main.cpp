@@ -154,12 +154,20 @@ int main(void)
     {
         std::cout << std::endl << "****************Test6****************" << std::endl << std::endl;
         DiamondTrap trap1("Diamond");
-        trap1.whoAmI();
-        trap1.showCharacteristics();
         DiamondTrap trap2;
         trap2.whoAmI();
         trap2 = DiamondTrap("Pikachu");
         trap2.whoAmI();
+        trap1.whoAmI();
+        trap1.showCharacteristics();
         trap1.attack(trap2.getName());
+        trap1.showStatus();
+        DiamondTrap trap3(trap1);
+        trap3.showCharacteristics();
+        trap3.attack(trap2.getName());
+        trap2.takeDamage(30);
+        trap1.showStatus();
+        trap2.showStatus();
+        trap3.showStatus();
     }
 }

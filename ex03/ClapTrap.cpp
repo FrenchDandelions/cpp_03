@@ -21,7 +21,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &copy)
 {
     std::cout << "ClapTrap copy assignement operator called" << std::endl;
     if(this != &copy){
-        (const_cast<std::string&>(this->_name)) = copy._name;
+        this->_name = copy._name;
         this->_attack_damage = copy._attack_damage;
         this->_energy_points = copy._energy_points;
         this->_hit_points = copy._hit_points;
